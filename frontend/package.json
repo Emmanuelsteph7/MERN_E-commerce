@@ -14,7 +14,7 @@
     "react-toastify": "^7.0.4",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
-    "styled-components": "^5.3.0"
+    "sass": "^1.36.0"
   },
   "scripts": {
     "start": "react-scripts start",
