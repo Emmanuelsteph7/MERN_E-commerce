@@ -1,0 +1,21 @@
+@use "styles" as *;
+
+.loader {
+  text-align: center;
+  margin: 50px 0;
+
+  svg {
+    animation: rotate 1s infinite;
+    font-size: 3rem;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

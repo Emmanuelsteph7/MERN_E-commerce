@@ -2,7 +2,6 @@ Hello,
 This is a little documentation of the processes and upcoming challenges i will go through and will overcome.
 
 Project: Build an E-Commerce Full Stack Web App
-Estimated Duration: 1 month
 Technologies Used: MERN (MongoDB, Express, React Js, Node Js)
 
 Steps Taken

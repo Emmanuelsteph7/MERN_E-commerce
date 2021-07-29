@@ -1,0 +1,49 @@
+@use "styles" as *;
+
+.card {
+  max-width: 270px;
+  padding: 20px;
+  border: 1px solid color(lightDark);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 2px 5px 10px lighten(color(dark), 10%);
+  }
+
+  .card__imageDiv {
+    display: flex;
+  }
+
+  .card__body {
+    margin: 10px 0;
+  }
+
+  .card__header {
+    transition: 0.3s ease-in-out;
+
+    a {
+      color: black;
+
+      &:hover {
+        color: color(darkPink);
+      }
+    }
+  }
+
+  .card__ratingDiv {
+    margin: 10px 0;
+  }
+
+  .card__price {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+
+  .card__btn {
+    @extend .btn;
+
+    width: 100%;
+    border-radius: 0;
+    padding: 0.7rem;
+  }
+}

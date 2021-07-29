@@ -1,0 +1,10 @@
+@use "styles" as *;
+
+.footer {
+  margin-top: 20vh;
+
+  .footer__content {
+    color: color(lightDark);
+    text-align: center;
+  }
+}

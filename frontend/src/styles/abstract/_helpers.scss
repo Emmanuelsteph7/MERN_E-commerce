@@ -1,0 +1,22 @@
+@use "./functions" as *;
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: color(dark);
+  cursor: pointer;
+  background-color: color(pink);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background-color: color(darkPink);
+    color: color(darkWhite);
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}

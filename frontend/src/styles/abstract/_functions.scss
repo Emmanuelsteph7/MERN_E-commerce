@@ -1,0 +1,13 @@
+@use "./variables" as *;
+
+@function fontSize($size) {
+  @return map-get($font-sizes, $size);
+}
+
+@function weight($weight) {
+  @return map-get($font-weight, $weight);
+}
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}

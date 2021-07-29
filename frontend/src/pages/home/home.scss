@@ -1,0 +1,17 @@
+@use "styles" as *;
+
+.home {
+  .home__container {
+    @extend .container;
+  }
+
+  .home__header {
+    margin: 30px 0;
+  }
+
+  .home__cardSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+}

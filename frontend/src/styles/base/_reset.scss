@@ -1,0 +1,30 @@
+@use "styles" as *;
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+}
+
+input {
+  font-family: "Lexend", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
