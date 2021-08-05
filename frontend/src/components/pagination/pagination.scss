@@ -1,0 +1,45 @@
+@use "styles" as *;
+
+/**************************************
+Start: Styles for pagination component
+**************************************/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pagination__number,
+  .pagination__start,
+  .pagination__end,
+  .pagination__next,
+  .pagination__back {
+    width: 30px;
+    margin: 0 5px;
+    background-color: color(pink);
+    height: 30px;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    color: #455a64;
+    border-radius: 5px;
+
+    &.active,
+    &:hover {
+      color: color(white);
+      background-color: color(darkPink);
+    }
+  }
+
+  .pagination__nextText {
+    position: absolute;
+    bottom: -10px;
+    font-size: 0.8rem;
+    left: 3px;
+    opacity: 0;
+    transition: 0.4s;
+  }
+}
+/**************************************
+End: Styles for pagination component
+**************************************/

@@ -13,6 +13,7 @@ const initialState = {
   products: [],
   productsCount: null,
   error: null,
+  resPerPage: "",
 };
 
 const productState = {
@@ -21,7 +22,7 @@ const productState = {
   error: null,
 };
 
-export const productReducer = (state = { initialState }, action) => {
+export const productReducer = (state = { ...initialState }, action) => {
   switch (action.type) {
     case ALL_PRODUCTS_LOADING:
       return {
@@ -35,6 +36,7 @@ export const productReducer = (state = { initialState }, action) => {
         loading: false,
         products: action.payload.products,
         productsCount: action.payload.totalProducts,
+        resPerPage: action.payload.resPerPage,
       };
 
     case ALL_PRODUCTS_FAIL:
@@ -55,7 +57,7 @@ export const productReducer = (state = { initialState }, action) => {
   }
 };
 
-export const productDetailsReducer = (state = { productState }, action) => {
+export const productDetailsReducer = (state = { ...productState }, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_LOADING:
       return {

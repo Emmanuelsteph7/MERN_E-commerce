@@ -5,15 +5,41 @@ const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
 const sendToken = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
+const cloudinary = require("cloudinary");
 
 // Register new user => api/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   let { name, email, password } = req.body;
 
+  // return an error when no name is sent from client
+  if (!name) {
+    return next(new ErrorHandler("Please, enter your name", 400));
+  }
+
+  // return an error when no email is sent from client
+  if (!email) {
+    return next(new ErrorHandler("Please, enter your email", 400));
+  }
+
+  // return an error when no password is sent from client
+  if (!password) {
+    return next(new ErrorHandler("Please, enter your password", 400));
+  }
+
   // first check if there is an existing user
   let previousUser = await User.findOne({ email });
   if (previousUser) {
     return next(new ErrorHandler("Email is already registered", 400));
+  }
+
+  let cloudinaryResult = {};
+
+  if (req.body.avatar) {
+    cloudinaryResult = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "avatars",
+      width: 150, // setting the size of the image to be saved
+      crop: "scale",
+    });
   }
 
   // hash password
@@ -23,6 +49,10 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     name,
     email,
     password,
+    avatar: {
+      public_id: cloudinaryResult.public_id || "",
+      url: cloudinaryResult.secure_url || "",
+    },
   });
 
   sendToken(user, 200, res);
@@ -30,6 +60,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
 // login user => api/login
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
+  // console.log("login");
   const { email, password } = req.body;
 
   // return an error when no email is sent from client
@@ -47,14 +78,14 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findOne({ email }).select("+password");
 
   if (!user) {
-    return next(new ErrorHandler("Invalid email or password", 401));
+    return next(new ErrorHandler("Invalid email", 401));
   }
 
   // check for correct password
   const passwordVerify = await user.comparePassword(password);
 
   if (!passwordVerify) {
-    return next(new ErrorHandler("Invalid email or password", 401));
+    return next(new ErrorHandler("Invalid password", 401));
   }
 
   sendToken(user, 200, res);

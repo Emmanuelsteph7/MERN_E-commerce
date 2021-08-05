@@ -1,0 +1,28 @@
+@use "styles" as *;
+
+.link {
+  overflow: hidden;
+  display: inline-block;
+
+  .link__item {
+    color: black;
+    text-decoration: none;
+    position: relative;
+
+    &:before {
+      content: attr(data-name);
+      //   width: 0;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      color: color(pink);
+      transition: 0.2s;
+    }
+
+    &:hover {
+      &:before {
+        left: 0;
+      }
+    }
+  }
+}

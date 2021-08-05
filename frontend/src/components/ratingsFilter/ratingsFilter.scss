@@ -1,0 +1,36 @@
+@use "styles" as *;
+
+.ratingsFilter {
+  width: 230px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  position: relative;
+
+  .ratingsFilter__star {
+    margin: 0 7px;
+    cursor: pointer;
+
+    &.noFill {
+      color: rgba(0, 0, 0, 0.2);
+    }
+
+    &.fill {
+      color: color(darkPink);
+    }
+
+    &.reset {
+      position: relative;
+      &.fill {
+        color: rgba(0, 0, 0, 0.2);
+      }
+
+      &.noFill {
+        color: color(darkPink);
+      }
+    }
+  }
+}

@@ -3,6 +3,9 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorMiddleware = require("./middleware/errors");
 const cookieParser = require("cookie-parser");
+// const bodyParser = require("body-parser");
+const cloudinary = require("cloudinary");
+const fileUpload = require("express-fileupload");
 
 // Setting up config file
 dotenv.config({ path: "backend/config/config.env" });
@@ -14,8 +17,16 @@ const app = express();
 
 // Body Parser
 app.use(express.json());
-
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(fileUpload());
+
+// Setting up cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 app.use("/api", require("./routes/api/product"));
 app.use("/api", require("./routes/api/auth"));

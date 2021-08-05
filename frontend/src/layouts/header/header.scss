@@ -13,8 +13,11 @@
   }
 
   .header__brand {
-    color: color(white);
     font-size: 2rem;
+
+    a {
+      color: color(white);
+    }
   }
 
   .header__brandColored {

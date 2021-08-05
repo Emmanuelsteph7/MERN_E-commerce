@@ -1,0 +1,70 @@
+@use "styles" as *;
+
+.productPage {
+  padding-top: 50px;
+
+  .productPage__container {
+    @extend .container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .productPage__imageDiv {
+    width: 47%;
+  }
+
+  .productPage__content {
+    width: 50%;
+  }
+
+  .productPage__head {
+    padding-bottom: 15px;
+  }
+
+  .productPage__ratings,
+  .productPage__price,
+  .productPage__status,
+  .productPage__description {
+    padding: 15px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .productPage__reviews {
+    margin-left: 10px;
+  }
+
+  .productPage__statusStock {
+    &.fail {
+      color: rgb(196, 26, 26);
+    }
+  }
+
+  .productPage__statusStock,
+  .productPage__submitSeller {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  .productPage__description {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .productPage__descriptionBody {
+    margin-top: 10px;
+  }
+
+  .productPage__submit {
+    padding: 15px 0;
+  }
+
+  .productPage__submitBtnDiv {
+    margin-top: 30px;
+  }
+
+  .productPage__submitBtn {
+    @extend .btn;
+    padding: 1rem 1.5rem;
+  }
+}

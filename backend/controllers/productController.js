@@ -6,11 +6,11 @@ const APIFeatures = require("../utils/apiFeatures");
 // Get all products in the database => api/products
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
   const totalProducts = await Product.countDocuments();
-
+  let resPerPage = 4;
   const apiFeatures = new APIFeatures(Product, req.query)
     .search()
     .filter()
-    .pagination(4);
+    .pagination(resPerPage);
   const products = await apiFeatures.query;
 
   res.status(200).json({
@@ -18,6 +18,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     fetchedProducts: products.length,
     totalProducts,
     products,
+    resPerPage,
   });
 });
 

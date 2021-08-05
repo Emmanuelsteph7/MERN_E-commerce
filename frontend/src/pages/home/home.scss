@@ -9,9 +9,51 @@
     margin: 30px 0;
   }
 
+  .home__head {
+    margin: 30px 0;
+    display: flex;
+  }
+
+  .home__filter {
+    margin-right: 30px;
+  }
+
+  .home__filterHeader,
+  .home__ratingsFilterHeader {
+    margin-bottom: 10px;
+  }
+
   .home__cardSection {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+  }
+
+  .home__cardSectionNull {
+    text-align: center;
+    margin: 100px 0;
+  }
+
+  .home__categoryItems {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .home__categoryItem {
+    padding: 0.5rem 0.8rem;
+    background-color: color(pink);
+    color: color(white);
+    border-radius: 10px;
+    margin: 10px 10px 10px 0;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      background-color: color(darkPink);
+    }
+  }
+
+  .home__pagination {
+    margin-top: 30px;
   }
 }
