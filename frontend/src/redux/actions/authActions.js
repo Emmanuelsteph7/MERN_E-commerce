@@ -5,6 +5,15 @@ import {
   REGISTER_LOADING,
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  LOAD_USER_LOADING,
+  LOAD_USER_SUCCESS,
+  LOAD_USER_FAIL,
+  UPDATE_PROFILE_LOADING,
+  UPDATE_PROFILE_SUCCESS,
+  UPDATE_PROFILE_RESET,
+  UPDATE_PROFILE_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
   CLEAR_ERRORS,
 } from "redux/constants/authConstants";
 
@@ -29,7 +38,7 @@ export const login = (email, password) => async (dispatch) => {
 
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data,
+      payload: res.data.user,
     });
   } catch (error) {
     dispatch({
@@ -53,11 +62,73 @@ export const register = (bodyData) => async (dispatch) => {
 
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: res.data,
+      payload: res.data.user,
     });
   } catch (error) {
     dispatch({
       type: REGISTER_FAIL,
+      payload: error.response.data.errMessage,
+    });
+  }
+};
+
+export const updateProfile = (bodyData) => async (dispatch) => {
+  try {
+    dispatch({ type: UPDATE_PROFILE_LOADING });
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data", // because we would pass in the avatar
+      },
+    };
+
+    const res = await axios.put("/api/profile/update", bodyData, config);
+
+    dispatch({
+      type: UPDATE_PROFILE_SUCCESS,
+      payload: res.data.success,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PROFILE_FAIL,
+      payload: error.response.data.errMessage,
+    });
+  }
+};
+
+export const updateProfileReset = () => async (dispatch) => {
+  dispatch({ type: UPDATE_PROFILE_RESET });
+};
+
+export const loadUser = () => async (dispatch) => {
+  try {
+    dispatch({ type: LOAD_USER_LOADING });
+
+    const res = await axios.get("/api/profile");
+
+    dispatch({
+      type: LOAD_USER_SUCCESS,
+      payload: res.data.user,
+    });
+  } catch (error) {
+    dispatch({
+      type: LOAD_USER_FAIL,
+      payload: error.response.data.errMessage,
+    });
+  }
+};
+
+export const logout = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/logout");
+
+    dispatch({
+      type: LOGOUT_SUCCESS,
+      payload: res.data.message,
+    });
+  } catch (error) {
+    dispatch({
+      type: LOGOUT_FAIL,
       payload: error.response.data.errMessage,
     });
   }

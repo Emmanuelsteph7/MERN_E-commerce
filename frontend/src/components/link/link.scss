@@ -25,4 +25,18 @@
       }
     }
   }
+
+  &.btn {
+    margin-left: 15px;
+
+    .link__item {
+      @extend .btn;
+
+      display: inline-block;
+      padding: 0.7rem 1rem;
+      &:before {
+        content: none;
+      }
+    }
+  }
 }

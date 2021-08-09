@@ -2,34 +2,50 @@ import { useState, useEffect } from "react";
 import MetaData from "components/metaData/MetaData";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
-import { clearErrors, register } from "redux/actions/authActions";
-import "./register.scss";
+import {
+  clearErrors,
+  updateProfile,
+  updateProfileReset,
+  loadUser,
+} from "redux/actions/authActions";
+import "./updateProfile.scss";
 import LinkItem from "components/link/Link";
 
-const Register = ({ history }) => {
+const UpdateProfile = ({ history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
   const [avatarPreview, setAvatarPreview] = useState("/avatar.png");
 
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  const { isAuthenticated, loading, error } = useSelector(
-    (state) => state.auth
+  const { user } = useSelector((state) => state.auth);
+  const { error, isUpdated, loading } = useSelector(
+    (state) => state.userUpdate
   );
 
   useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+      setAvatarPreview(user.avatar.url);
+      setAvatar(user.avatar.url);
+    }
+
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
 
-    if (isAuthenticated) {
-      history.push("/");
+    if (isUpdated) {
+      alert.success("User Updated Successfully");
+      dispatch(loadUser());
+
+      history.push("/profile");
+      dispatch(updateProfileReset());
     }
-  }, [dispatch, alert, error, isAuthenticated, history]);
+  }, [dispatch, alert, error, isUpdated, history]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,11 +53,9 @@ const Register = ({ history }) => {
     const formData = new FormData();
     formData.set("name", name);
     formData.set("email", email);
-    formData.set("password", password);
     formData.set("avatar", avatar);
 
-    console.log(formData);
-    dispatch(register(formData));
+    dispatch(updateProfile(formData));
   };
 
   const handleFile = (e) => {
@@ -64,75 +78,59 @@ const Register = ({ history }) => {
   };
 
   return (
-    <div className="register">
+    <div className="updateProfile">
       <>
-        <MetaData title="Register" />
-        <div className="register">
+        <MetaData title="updateProfile" />
+        <div className="updateProfile">
           <form
-            className="register__form"
+            className="updateProfile__form"
             onSubmit={(e) => handleSubmit(e)}
             encType="multipart/form-data"
             noValidate
           >
-            <h2 className="register__header">Register</h2>
-            <div className="register__formGroup">
-              <label className="register__formLabel">Name</label>
+            <h2 className="updateProfile__header">Update Profile</h2>
+            <div className="updateProfile__formGroup">
+              <label className="updateProfile__formLabel">Name</label>
               <input
                 type="text"
                 name="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="register__formInput"
+                className="updateProfile__formInput"
               />
             </div>
-            <div className="register__formGroup">
-              <label className="register__formLabel">Email</label>
+            <div className="updateProfile__formGroup">
+              <label className="updateProfile__formLabel">Email</label>
               <input
                 type="email"
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="register__formInput"
+                className="updateProfile__formInput"
               />
             </div>
-            <div className="register__formGroup">
-              <label className="register__formLabel">Password</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="register__formInput"
-              />
-            </div>
-            <div className="register__formGroup">
-              <label className="register__formLabel">Choose Avatar</label>
-              <div className="register__formGroupSub">
+            <div className="updateProfile__formGroup">
+              <label className="updateProfile__formLabel">Choose Avatar</label>
+              <div className="updateProfile__formGroupSub">
                 <img src={avatarPreview} alt="" />
                 <input
                   type="file"
                   name="avatar"
                   onChange={handleFile}
-                  className="register__formInput avatar"
+                  className="updateProfile__formInput avatar"
                   accept="images/*"
                 />
               </div>
             </div>
-            <div className="register__forgotPwd">
-              <LinkItem link="/password/forgot" text="Forgot Password?" />
-            </div>
 
-            <div className="register__submit">
+            <div className="updateProfile__submit">
               <button
                 type="submit"
                 disabled={loading ? true : false}
-                className="register__submitBtn"
+                className="updateProfile__submitBtn"
               >
-                Register
+                Update
               </button>
-            </div>
-            <div className="register__newUser">
-              <LinkItem link="/login" text="Already have an account?" />
             </div>
           </form>
         </div>
@@ -141,4 +139,4 @@ const Register = ({ history }) => {
   );
 };
 
-export default Register;
+export default UpdateProfile;

@@ -32,13 +32,6 @@
     align-items: center;
   }
 
-  .header__loginBtn {
-    @extend .btn;
-
-    margin-right: 15px;
-    padding: 0.7rem 1rem;
-  }
-
   .header__cartText {
     color: color(white);
   }
@@ -49,5 +42,76 @@
     color: color(dark);
     border-radius: 5px;
     margin-left: 7px;
+  }
+
+  .header__user {
+    position: relative;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header__userDetails {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .header__userAvatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+
+  .header__userArrow {
+    display: flex;
+    color: color(white);
+
+    svg {
+      transition: 0.3s;
+    }
+
+    &.rotate {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .header__userSubMenu {
+    position: absolute;
+    left: 0;
+    top: 120%;
+    background-color: color(white);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    display: none;
+    width: 120%;
+    flex-direction: column;
+
+    &.submenu {
+      display: flex;
+    }
+
+    .link {
+      margin: 10px 0;
+    }
+
+    a {
+      width: 100%;
+      padding: 5px 0;
+      text-align: center;
+      display: block;
+
+      &::before {
+        width: 100%;
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .header__userName {
+    color: color(white);
   }
 }

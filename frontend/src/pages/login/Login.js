@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import MetaData from "components/metaData/MetaData";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "components/loader/Loader";
 import { useAlert } from "react-alert";
 import { clearErrors, login } from "redux/actions/authActions";
-import { Link } from "react-router-dom";
 import "./login.scss";
 import LinkItem from "components/link/Link";
 

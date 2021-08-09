@@ -233,9 +233,23 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+  let cloudinaryResult = {};
+
+  if (req.body.avatar) {
+    cloudinaryResult = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "avatars",
+      width: 150, // setting the size of the image to be saved
+      crop: "scale",
+    });
+  }
+
   const newProfile = {
     name: req.body.name,
     email: req.body.email,
+    avatar: {
+      public_id: cloudinaryResult.public_id,
+      url: cloudinaryResult.secure_url,
+    },
   };
 
   const user = await User.findByIdAndUpdate(req.user.id, newProfile, {
