@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import Profile from "pages/profile/Profile";
 import ProtectedRoute from "components/protectedRoute/ProtectedRoute";
 import UpdateProfile from "pages/updateProfile/UpdateProfile";
+import UpdatePassword from "pages/updatePassword/UpdatePassword";
+import ForgotPassword from "pages/forgotPassword/ForgotPassword";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,6 +30,8 @@ const App = () => {
       <Route path="/product/:id" component={ProductPage} />
       <ProtectedRoute path="/profile" component={Profile} exact />
       <ProtectedRoute path="/profile/update" component={UpdateProfile} />
+      <ProtectedRoute path="/password/update" component={UpdatePassword} />
+      <Route path="/password/forgot" component={ForgotPassword} />
 
       <Footer />
     </div>

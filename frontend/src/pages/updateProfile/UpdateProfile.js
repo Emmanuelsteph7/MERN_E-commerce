@@ -9,7 +9,6 @@ import {
   loadUser,
 } from "redux/actions/authActions";
 import "./updateProfile.scss";
-import LinkItem from "components/link/Link";
 
 const UpdateProfile = ({ history }) => {
   const [name, setName] = useState("");
@@ -80,7 +79,7 @@ const UpdateProfile = ({ history }) => {
   return (
     <div className="updateProfile">
       <>
-        <MetaData title="updateProfile" />
+        <MetaData title="Update Profile" />
         <div className="updateProfile">
           <form
             className="updateProfile__form"
@@ -129,7 +128,7 @@ const UpdateProfile = ({ history }) => {
                 disabled={loading ? true : false}
                 className="updateProfile__submitBtn"
               >
-                Update
+                Update Profile
               </button>
             </div>
           </form>

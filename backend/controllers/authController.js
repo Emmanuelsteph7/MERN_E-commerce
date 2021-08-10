@@ -93,6 +93,9 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
 // Forgot password => api/forgot-password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
+  if (!req.body.email.trim().length) {
+    return next(new ErrorHandler("Please, Enter Email", 404));
+  }
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
