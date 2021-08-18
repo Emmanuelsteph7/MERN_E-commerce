@@ -19,6 +19,9 @@ import {
   FORGOT_PASSWORD_LOADING,
   FORGOT_PASSWORD_SUCCESS,
   FORGOT_PASSWORD_FAIL,
+  RESET_PASSWORD_LOADING,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
   CLEAR_ERRORS,
@@ -137,6 +140,7 @@ export const userProfileReducer = (state = {}, action) => {
 export const forgotPasswordReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGOT_PASSWORD_LOADING:
+    case RESET_PASSWORD_LOADING:
       return {
         ...state,
         loading: true,
@@ -150,7 +154,14 @@ export const forgotPasswordReducer = (state = {}, action) => {
         message: action.payload,
       };
 
+    case RESET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        success: action.payload,
+      };
+
     case FORGOT_PASSWORD_FAIL:
+    case RESET_PASSWORD_FAIL:
       return {
         ...state,
         loading: false,

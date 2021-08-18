@@ -105,15 +105,14 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   // Get reset token
   const resetToken = user.getResetPasswordToken();
 
-  console.log(user.resetPasswordExpire);
-
   // You can disable automatic validation before save by setting the validateBeforeSave option
   await user.save({ validateBeforeSave: false });
 
   // Create reset password url
-  const resetUrl = `${req.protocol}://${req.get(
-    "host"
-  )}/api/reset-password/${resetToken}`;
+  // const resetUrl = `${req.protocol}://${req.get(
+  //   "host"
+  // )}/api/reset-password/${resetToken}`;
+  const resetUrl = `http://localhost:3000/password/reset/${resetToken}`;
 
   const message = `Your password reset token is as follows:\n\n\n${resetUrl}\n\n\nIf you have not requested this email, then inore it.`;
 

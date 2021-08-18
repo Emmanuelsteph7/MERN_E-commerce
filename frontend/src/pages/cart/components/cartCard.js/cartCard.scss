@@ -1,0 +1,62 @@
+@use "../../../../styles" as *;
+
+.cartCard {
+  border: 1px solid color(lightDark);
+  transition: 0.3s ease-in-out;
+  margin-bottom: 20px;
+
+  &:hover {
+    box-shadow: 2px 5px 10px lighten(color(dark), 10%);
+  }
+
+  .cartCard__container {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 10px auto;
+  }
+
+  .cartCard__image {
+    width: 130px;
+  }
+
+  .cartCard__info,
+  .cartCard__price {
+    width: 20%;
+  }
+
+  .cartCard__info,
+  .cartCard__price,
+  .cartCard__delete {
+    display: flex;
+    align-items: center;
+  }
+
+  .cartCard__info {
+    a {
+      color: black;
+      font-weight: 600;
+
+      &:hover {
+        color: color(darkPink);
+      }
+    }
+  }
+
+  .cartCard__price {
+    font-weight: 600;
+    color: color(darkPink);
+  }
+
+  .cartCard__delete {
+    svg {
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: color(darkPink);
+      }
+    }
+  }
+}

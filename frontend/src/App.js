@@ -13,6 +13,9 @@ import ProtectedRoute from "components/protectedRoute/ProtectedRoute";
 import UpdateProfile from "pages/updateProfile/UpdateProfile";
 import UpdatePassword from "pages/updatePassword/UpdatePassword";
 import ForgotPassword from "pages/forgotPassword/ForgotPassword";
+import ResetPassword from "pages/resetPassword/ResetPassword";
+import Cart from "pages/cart/Cart";
+import Shipping from "pages/shipping/Shipping";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,14 +27,17 @@ const App = () => {
     <div className="app">
       <Header />
       <Route path="/" component={Home} exact />
+      <Route path="/cart" component={Cart} />
       <Route path="/search/:keyword" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/shipping" component={Shipping} />
       <Route path="/product/:id" component={ProductPage} />
       <ProtectedRoute path="/profile" component={Profile} exact />
       <ProtectedRoute path="/profile/update" component={UpdateProfile} />
       <ProtectedRoute path="/password/update" component={UpdatePassword} />
       <Route path="/password/forgot" component={ForgotPassword} />
+      <Route path="/password/reset/:token" component={ResetPassword} />
 
       <Footer />
     </div>

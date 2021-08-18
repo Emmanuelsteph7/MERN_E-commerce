@@ -1,0 +1,26 @@
+@use "../../styles" as *;
+
+.quantity {
+  display: flex;
+  align-items: center;
+  // margin-right: 20px;
+
+  .quantity__decrease,
+  .quantity__increase {
+    @extend .btn;
+    padding: 0.4rem 0.8rem;
+    color: white;
+  }
+
+  .quantity__decrease {
+    background-color: rgb(192, 32, 32);
+  }
+
+  .quantity__increase {
+    background-color: rgb(16, 16, 218);
+  }
+
+  .quantity__number {
+    margin: 0 10px;
+  }
+}

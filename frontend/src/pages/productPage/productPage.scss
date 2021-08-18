@@ -35,6 +35,18 @@
     margin-left: 10px;
   }
 
+  .productPage__priceCart {
+    display: flex;
+    align-items: center;
+  }
+
+  .productPage__priceCartBtn {
+    @extend .btn;
+    margin-left: 20px;
+
+    padding: 0.6rem 1rem;
+  }
+
   .productPage__statusStock {
     &.fail {
       color: rgb(196, 26, 26);

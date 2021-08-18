@@ -1,14 +1,17 @@
 import Loader from "components/loader/Loader";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "assets/images/card.jpg";
 import StarRatings from "react-star-ratings";
 import { clearErrors, getProductDetails } from "redux/actions/productActions";
+import { addItemToCart } from "redux/actions/cartActions";
 import { useAlert } from "react-alert";
 import "./productPage.scss";
 import MetaData from "components/metaData/MetaData";
+import Quantity from "components/quantity/Quantity";
 
 const ProductPage = ({ match }) => {
+  const [quantity, setQuantity] = useState(1);
   const alert = useAlert();
   const dispatch = useDispatch();
 
@@ -22,6 +25,35 @@ const ProductPage = ({ match }) => {
 
     dispatch(getProductDetails(match.params.id));
   }, [dispatch, error, alert, match.params.id]);
+
+  const increaseStock = () => {
+    let number;
+
+    if (quantity >= product.stock) {
+      number = quantity + 0;
+      return setQuantity(number);
+    }
+
+    number = quantity + 1;
+    setQuantity(number);
+  };
+
+  const decreaseStock = () => {
+    let number;
+
+    if (quantity <= 1) {
+      number = quantity - 0;
+      return setQuantity(number);
+    }
+
+    number = quantity - 1;
+    setQuantity(number);
+  };
+
+  const addToCart = () => {
+    dispatch(addItemToCart(match.params.id, quantity));
+    alert.success("Item Successfully Added to Cart");
+  };
 
   return (
     <>
@@ -63,6 +95,37 @@ const ProductPage = ({ match }) => {
                       <span className="productPage__priceAmount header4">
                         ${product.price}
                       </span>
+                      <div className="productPage__priceCart">
+                        {/* <div className="productPage__priceCartLogic">
+                          <button
+                            className="productPage__priceCartLogicBtn red"
+                            onClick={decreaseStock}
+                          >
+                            -
+                          </button>
+                          <span className="productPage__priceCartLogicNumber">
+                            {quantity}
+                          </span>
+                          <button
+                            className="productPage__priceCartLogicBtn blue"
+                            onClick={increaseStock}
+                          >
+                            +
+                          </button>
+                        </div> */}
+                        <Quantity
+                          value={quantity}
+                          increaseFunc={increaseStock}
+                          decreaseFunc={decreaseStock}
+                        />
+                        <button
+                          className="productPage__priceCartBtn"
+                          disabled={product.stock === 0}
+                          onClick={addToCart}
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
                     </div>
                     <div className="productPage__status">
                       <span className="productPage__statusHeader">Status:</span>

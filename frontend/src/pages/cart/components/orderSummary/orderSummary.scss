@@ -1,0 +1,42 @@
+@use "../../../../styles" as *;
+
+.orderSummary {
+  width: 27%;
+  height: fit-content;
+  border: 1px solid color(lightDark);
+  transition: 0.3s ease-in-out;
+  margin-bottom: 20px;
+
+  &:hover {
+    box-shadow: 2px 5px 10px lighten(color(dark), 10%);
+  }
+
+  .orderSummary__container {
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  .orderSummary__info {
+    border-top: 1px solid color(lightDark);
+    border-bottom: 1px solid color(lightDark);
+    margin: 20px 0;
+  }
+
+  .orderSummary__infoContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .orderSummary__infoContentValue {
+    font-weight: 600;
+  }
+
+  .orderSummary__btn {
+    @extend .btn;
+
+    width: 100%;
+    padding: 0.7rem;
+  }
+}

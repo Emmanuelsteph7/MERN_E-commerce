@@ -1,0 +1,20 @@
+@use "../../styles" as *;
+
+.cart {
+  .cart__container {
+    @extend .container;
+  }
+
+  .cart__header {
+    margin: 40px 0 20px;
+  }
+
+  .cart__body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart__content {
+    width: 70%;
+  }
+}

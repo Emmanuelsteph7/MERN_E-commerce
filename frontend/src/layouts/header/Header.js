@@ -16,6 +16,7 @@ const Header = () => {
   const [subMenu, setSubMenu] = useState(false);
 
   const { loading, user } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
 
   let slicedName;
   if (user && user.name) {
@@ -54,8 +55,10 @@ const Header = () => {
 
         <div className="header__loginCart">
           <div className="header__cart">
-            <span className="header__cartText">Cart</span>
-            <span className="header__cartNumber">2</span>
+            <Link to="/cart">
+              <span className="header__cartText">Cart</span>
+              <span className="header__cartNumber">{cartItems.length}</span>
+            </Link>
           </div>
           <div className="header__user">
             {user ? (

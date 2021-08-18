@@ -6,6 +6,12 @@ import {
 
 import { LOGIN_FAIL, LOGIN_SUCCESS, LOGIN_LOADING } from "./authConstants";
 
+import {
+  ADD_TO_CART,
+  REMOVE_CART_ITEM,
+  SAVE_SHIPPING_INFO,
+} from "./cartConstants";
+
 export {
   ALL_PRODUCTS_FAIL,
   ALL_PRODUCTS_SUCCESS,
@@ -13,4 +19,7 @@ export {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
   LOGIN_LOADING,
+  ADD_TO_CART,
+  REMOVE_CART_ITEM,
+  SAVE_SHIPPING_INFO,
 };
