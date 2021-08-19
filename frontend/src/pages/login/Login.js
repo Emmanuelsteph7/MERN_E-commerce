@@ -6,7 +6,7 @@ import { clearErrors, login } from "redux/actions/authActions";
 import "./login.scss";
 import LinkItem from "components/link/Link";
 
-const Login = ({ history }) => {
+const Login = ({ history, location }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,6 +17,11 @@ const Login = ({ history }) => {
     (state) => state.auth
   );
 
+  // if a user isn't logged in and has added things to the cart and wants to checkout,
+  // it should take the user to the login page. After logging in, instead of taking the user to the home,
+  // it should take the user to the shopping page
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -24,7 +29,7 @@ const Login = ({ history }) => {
     }
 
     if (isAuthenticated) {
-      history.push("/");
+      history.push(redirect);
     }
   }, [dispatch, alert, error, isAuthenticated, history]);
 

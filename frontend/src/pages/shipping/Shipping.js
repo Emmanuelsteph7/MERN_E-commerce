@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { countries } from "countries-list";
 import { saveShippingInfo } from "redux/actions/cartActions";
 import { useEffect, useState } from "react";
-import Loader from "components/loader/Loader";
-import { useAlert } from "react-alert";
 import "./shipping.scss";
+import CheckoutSteps from "components/checkoutSteps/CheckoutSteps";
 
 const Shipping = ({ history }) => {
-  const shippingInfo = useSelector((state) => state.cart);
+  const { shippingInfo } = useSelector((state) => state.cart);
   const [address, setAddress] = useState(shippingInfo.address);
   const [city, setCity] = useState(shippingInfo.city);
   const [postalCode, setPostalCode] = useState(shippingInfo.postalCode);
@@ -19,7 +18,7 @@ const Shipping = ({ history }) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
-    e.prevent.Default();
+    e.preventDefault();
 
     let data = {
       address,
@@ -33,8 +32,6 @@ const Shipping = ({ history }) => {
     history.push("/confirm");
   };
 
-  //   const countriesList = Object.values(countries);
-  //   console.log(countriesList);
   const countriesList = Object.values(countries).map((country) => (
     <option value={country.name} key={country.name}>
       {country.name}
@@ -45,6 +42,7 @@ const Shipping = ({ history }) => {
     <>
       <MetaData title="Shipping Info" />
       <div className="shipping">
+        <CheckoutSteps shipping />
         <form
           className="shipping__form"
           onSubmit={(e) => handleSubmit(e)}
@@ -98,7 +96,7 @@ const Shipping = ({ history }) => {
               id=""
               className="shipping__formInput"
               value={country}
-              onChange={(e) => e.target.value}
+              onChange={(e) => setCountry(e.target.value)}
             >
               {countriesList}
             </select>

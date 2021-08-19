@@ -16,6 +16,7 @@ import ForgotPassword from "pages/forgotPassword/ForgotPassword";
 import ResetPassword from "pages/resetPassword/ResetPassword";
 import Cart from "pages/cart/Cart";
 import Shipping from "pages/shipping/Shipping";
+import ConfirmOrder from "pages/confirmOrder/ConfirmOrder";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const App = () => {
       <ProtectedRoute path="/password/update" component={UpdatePassword} />
       <Route path="/password/forgot" component={ForgotPassword} />
       <Route path="/password/reset/:token" component={ResetPassword} />
+      <Route path="/confirm" component={ConfirmOrder} />
 
       <Footer />
     </div>

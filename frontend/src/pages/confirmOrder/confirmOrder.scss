@@ -1,0 +1,52 @@
+@use "styles" as *;
+
+.confirmOrder {
+  margin-top: 50px;
+
+  .confirmOrder__container {
+    @extend .container;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .confirmOrder__body {
+    width: 70%;
+  }
+
+  .confirmOrder__info {
+    padding: 20px 30px;
+    border: 1px solid color(lightDark);
+    transition: 0.3s ease-in-out;
+    margin-bottom: 20px;
+
+    &:hover {
+      box-shadow: 2px 5px 10px lighten(color(dark), 10%);
+    }
+  }
+
+  .confirmOrder__infoContainer {
+    margin-top: 20px;
+    padding-left: 20px;
+    border-top: 1px solid color(lightDark);
+  }
+
+  .confirmOrder__content {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+
+  .confirmOrder__contentHeader {
+    font-weight: 600;
+    margin-right: 15px;
+  }
+
+  .confirmOrder__cartItems {
+    margin-top: 30px;
+  }
+
+  .confirmOrder__cartItemsHeader {
+    margin-bottom: 20px;
+  }
+}

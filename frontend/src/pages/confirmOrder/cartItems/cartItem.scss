@@ -1,0 +1,45 @@
+@use "styles" as *;
+
+.cartItem {
+  margin-bottom: 20px;
+  padding: 10px 30px;
+  border: 1px solid color(lightDark);
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 2px 5px 10px lighten(color(dark), 10%);
+  }
+
+  .cartItem__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cartItem__image {
+    width: 100px;
+  }
+
+  .cartItem__name {
+    width: 40%;
+    text-align: center;
+
+    a {
+      color: black;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: color(darkPink);
+      }
+    }
+  }
+
+  .cartItem__amount {
+    display: flex;
+    align-items: center;
+  }
+
+  .cartItem__amountBold {
+    font-weight: 600;
+  }
+}

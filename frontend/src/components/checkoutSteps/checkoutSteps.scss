@@ -1,0 +1,29 @@
+@use "styles" as *;
+
+.checkoutSteps {
+  width: 50%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+
+  .checkoutSteps__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .checkoutSteps__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: calc(100% / 3);
+    padding: 1rem;
+    font-weight: 600;
+    clip-path: polygon(0 0, 90% 0, 100% 50%, 90% 100%, 0 100%, 10% 50%);
+
+    &.active {
+      background-color: color(pink);
+      color: white;
+    }
+  }
+}
