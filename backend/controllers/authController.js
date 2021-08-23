@@ -112,7 +112,10 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
   // const resetUrl = `${req.protocol}://${req.get(
   //   "host"
   // )}/api/reset-password/${resetToken}`;
-  const resetUrl = `http://localhost:3000/password/reset/${resetToken}`;
+  const resetUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/password/reset/${resetToken}`;
+  // const resetUrl = `http://localhost:3000/password/reset/${resetToken}`;
 
   const message = `Your password reset token is as follows:\n\n\n${resetUrl}\n\n\nIf you have not requested this email, then inore it.`;
 

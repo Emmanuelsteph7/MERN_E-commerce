@@ -1,5 +1,5 @@
 const express = require("express");
-const dotenv = require("dotenv");
+// const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorMiddleware = require("./middleware/errors");
 const cookieParser = require("cookie-parser");
@@ -7,9 +7,12 @@ const cookieParser = require("cookie-parser");
 const cloudinary = require("cloudinary");
 const fileUpload = require("express-fileupload");
 const cors = require("cors");
+const path = require("path");
 
 // Setting up config file
-dotenv.config({ path: "backend/config/config.env" });
+if (process.env.NODE_ENV !== "PRODUCTION") {
+  require("dotenv").dotenv.config({ path: "backend/config/config.env" });
+}
 
 // Connect to Mongo
 connectDB();
@@ -34,6 +37,14 @@ cloudinary.config({
 app.use("/api", require("./routes/api/product"));
 app.use("/api", require("./routes/api/auth"));
 // app.use("/api", require("./routes/api/order"));
+
+if (process.env.NODE_ENV === "PRODUCTION") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+  });
+}
 
 // Middleware to handle errors
 app.use(errorMiddleware);
