@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 // const bodyParser = require("body-parser");
 const cloudinary = require("cloudinary");
 const fileUpload = require("express-fileupload");
+const cors = require("cors");
 
 // Setting up config file
 dotenv.config({ path: "backend/config/config.env" });
@@ -14,6 +15,8 @@ dotenv.config({ path: "backend/config/config.env" });
 connectDB();
 
 const app = express();
+
+app.use(cors());
 
 // Body Parser
 app.use(express.json());
