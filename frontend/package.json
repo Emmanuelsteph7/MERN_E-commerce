@@ -48,5 +48,6 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "./",
   "proxy": "https://eming-shop-it.herokuapp.com/"
 }
