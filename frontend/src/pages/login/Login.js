@@ -13,9 +13,7 @@ const Login = ({ history, location }) => {
   const alert = useAlert();
   const dispatch = useDispatch();
 
-  const { isAuthenticated, loading, error } = useSelector(
-    (state) => state.auth
-  );
+  const { isAuthenticated, error } = useSelector((state) => state.auth);
 
   // if a user isn't logged in and has added things to the cart and wants to checkout,
   // it should take the user to the login page. After logging in, instead of taking the user to the home,
@@ -31,7 +29,7 @@ const Login = ({ history, location }) => {
     if (isAuthenticated) {
       history.push(redirect);
     }
-  }, [dispatch, alert, error, isAuthenticated, history]);
+  }, [dispatch, alert, error, isAuthenticated, redirect, history]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,10 +1,7 @@
 import Quantity from "components/quantity/Quantity";
 import { RiDeleteBin5Fill } from "react-icons/ri";
-import MetaData from "components/metaData/MetaData";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "redux/actions/cartActions";
-import { useEffect } from "react";
-import Loader from "components/loader/Loader";
 import { useAlert } from "react-alert";
 import "./cartCard.scss";
 import { Link } from "react-router-dom";
@@ -21,7 +18,7 @@ const CartCard = ({
   const dispatch = useDispatch();
   const alert = useAlert();
 
-  const { cartItems } = useSelector((state) => state.cart);
+  // const { cartItems } = useSelector((state) => state.cart);
 
   const increaseStock = (id, quantity, stock) => {
     let number;

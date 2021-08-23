@@ -1,15 +1,11 @@
-import { Link } from "react-router-dom";
 import MetaData from "components/metaData/MetaData";
-import { useDispatch, useSelector } from "react-redux";
-import { countries } from "countries-list";
-import { saveShippingInfo } from "redux/actions/cartActions";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import CheckoutSteps from "components/checkoutSteps/CheckoutSteps";
 import "./confirmOrder.scss";
 import OrderSummary from "pages/cart/components/orderSummary/OrderSummary";
 import CartItem from "./cartItems/CartItem";
 
-const ConfirmOrder = ({ history }) => {
+const ConfirmOrder = () => {
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.auth);
 

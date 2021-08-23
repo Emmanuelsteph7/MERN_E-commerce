@@ -30,6 +30,7 @@ cloudinary.config({
 
 app.use("/api", require("./routes/api/product"));
 app.use("/api", require("./routes/api/auth"));
+// app.use("/api", require("./routes/api/order"));
 
 // Middleware to handle errors
 app.use(errorMiddleware);

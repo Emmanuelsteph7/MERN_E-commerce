@@ -2,7 +2,7 @@ import { Route, Redirect } from "react-router";
 import { useSelector } from "react-redux";
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-  const { isAuthenticated, loading, user } = useSelector((state) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state) => state.auth);
   return (
     <>
       {!loading && (

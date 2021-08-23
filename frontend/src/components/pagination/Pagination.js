@@ -45,7 +45,7 @@ const Pagination = ({
     for (let i = 0; i < paginationIcons.length; i++) {
       paginationIcons[i].classList.remove("active");
 
-      if (paginationIcons[i].innerHTML == currentPage + 1) {
+      if (paginationIcons[i].innerHTML === currentPage + 1) {
         paginationIcons[i].classList.add("active");
       }
     }
@@ -62,7 +62,7 @@ const Pagination = ({
     for (let i = 0; i < paginationIcons.length; i++) {
       paginationIcons[i].classList.remove("active");
 
-      if (paginationIcons[i].innerHTML == currentPage - 1) {
+      if (paginationIcons[i].innerHTML === currentPage - 1) {
         paginationIcons[i].classList.add("active");
       }
     }
@@ -79,7 +79,7 @@ const Pagination = ({
     for (let i = 0; i < paginationIcons.length; i++) {
       paginationIcons[i].classList.remove("active");
 
-      if (paginationIcons[i].innerHTML == 1) {
+      if (paginationIcons[i].innerHTML === 1) {
         paginationIcons[i].classList.add("active");
       }
     }
@@ -96,7 +96,7 @@ const Pagination = ({
     for (let i = 0; i < paginationIcons.length; i++) {
       paginationIcons[i].classList.remove("active");
 
-      if (paginationIcons[i].innerHTML == highestNumber) {
+      if (paginationIcons[i].innerHTML === highestNumber) {
         paginationIcons[i].classList.add("active");
       }
     }
@@ -110,7 +110,7 @@ const Pagination = ({
       <div className="pagination__back" onClick={backPagination}>
         <BsChevronLeft />
       </div>
-      {pageNumbers != undefined &&
+      {pageNumbers !== undefined &&
         pageNumbers.map((number) => {
           return (
             <div

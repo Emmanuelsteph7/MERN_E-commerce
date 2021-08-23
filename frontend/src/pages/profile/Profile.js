@@ -1,7 +1,5 @@
 import MetaData from "components/metaData/MetaData";
-import { useDispatch, useSelector } from "react-redux";
-import { useAlert } from "react-alert";
-import { clearErrors, login } from "redux/actions/authActions";
+import { useSelector } from "react-redux";
 import "./profile.scss";
 import LinkItem from "components/link/Link";
 import Loader from "components/loader/Loader";

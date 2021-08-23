@@ -1,17 +1,12 @@
-import { Link } from "react-router-dom";
 import MetaData from "components/metaData/MetaData";
-import { useDispatch, useSelector } from "react-redux";
-import { addItemToCart, removeItemFromCart } from "redux/actions/cartActions";
-import { useEffect } from "react";
-import Loader from "components/loader/Loader";
-import { useAlert } from "react-alert";
+import { useSelector } from "react-redux";
 
 import "./cart.scss";
 import CartCard from "./components/cartCard.js/CartCard";
 import OrderSummary from "./components/orderSummary/OrderSummary";
 
 const Cart = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
 

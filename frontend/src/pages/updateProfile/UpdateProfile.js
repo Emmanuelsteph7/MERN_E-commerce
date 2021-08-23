@@ -44,7 +44,7 @@ const UpdateProfile = ({ history }) => {
       history.push("/profile");
       dispatch(updateProfileReset());
     }
-  }, [dispatch, alert, error, isUpdated, history]);
+  }, [dispatch, alert, error, isUpdated, history, user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
