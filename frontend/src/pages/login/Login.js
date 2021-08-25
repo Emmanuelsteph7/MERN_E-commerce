@@ -28,6 +28,7 @@ const Login = ({ history, location }) => {
 
     if (isAuthenticated) {
       history.push(redirect);
+      alert.success("Login Successful");
     }
   }, [dispatch, alert, error, isAuthenticated, redirect, history]);
 
@@ -42,11 +43,11 @@ const Login = ({ history, location }) => {
       <MetaData title="Login" />
       <div className="login">
         <form
-          className="login__form"
+          className="login__form form"
           onSubmit={(e) => handleSubmit(e)}
           noValidate
         >
-          <h2 className="login__header">Login</h2>
+          <h2 className="login__header header1">Login</h2>
           <div className="login__formGroup">
             <label className="login__formLabel">Email</label>
             <input
@@ -71,7 +72,7 @@ const Login = ({ history, location }) => {
           </div>
 
           <div className="login__submit">
-            <button type="submit" className="login__submitBtn">
+            <button type="submit" className="login__submitBtn btn">
               Login
             </button>
           </div>

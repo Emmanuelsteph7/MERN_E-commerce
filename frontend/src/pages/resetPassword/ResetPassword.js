@@ -73,7 +73,7 @@ const ResetPassword = ({ history, match }) => {
             </div>
 
             <div className="resetPassword__submit">
-              <button type="submit" className="resetPassword__submitBtn">
+              <button type="submit" className="resetPassword__submitBtn btn">
                 Set Password
               </button>
             </div>

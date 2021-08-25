@@ -14,15 +14,33 @@
     justify-content: space-between;
     width: 85%;
     margin: 10px auto;
+
+    @include maxWidth(767px) {
+      width: 95%;
+    }
   }
 
   .cartCard__image {
     width: 130px;
+
+    @include maxWidth(767px) {
+      width: 90px;
+    }
+
+    @include maxWidth(575px) {
+      width: 50px;
+    }
   }
 
   .cartCard__info,
   .cartCard__price {
     width: 20%;
+  }
+
+  .cartCard__price {
+    @include maxWidth(767px) {
+      width: 12%;
+    }
   }
 
   .cartCard__info,

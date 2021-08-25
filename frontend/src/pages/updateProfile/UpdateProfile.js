@@ -82,12 +82,12 @@ const UpdateProfile = ({ history }) => {
         <MetaData title="Update Profile" />
         <div className="updateProfile">
           <form
-            className="updateProfile__form"
+            className="updateProfile__form form"
             onSubmit={(e) => handleSubmit(e)}
             encType="multipart/form-data"
             noValidate
           >
-            <h2 className="updateProfile__header">Update Profile</h2>
+            <h2 className="updateProfile__header header1">Update Profile</h2>
             <div className="updateProfile__formGroup">
               <label className="updateProfile__formLabel">Name</label>
               <input
@@ -126,7 +126,7 @@ const UpdateProfile = ({ history }) => {
               <button
                 type="submit"
                 disabled={loading ? true : false}
-                className="updateProfile__submitBtn"
+                className="updateProfile__submitBtn btn"
               >
                 Update Profile
               </button>

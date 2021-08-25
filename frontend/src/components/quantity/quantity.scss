@@ -1,4 +1,4 @@
-@use "../../styles" as *;
+@use "styles" as *;
 
 .quantity {
   display: flex;
@@ -7,7 +7,6 @@
 
   .quantity__decrease,
   .quantity__increase {
-    @extend .btn;
     padding: 0.4rem 0.8rem;
     color: white;
   }

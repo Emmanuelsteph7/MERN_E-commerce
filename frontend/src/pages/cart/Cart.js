@@ -14,12 +14,12 @@ const Cart = () => {
     <>
       <MetaData title="Your Cart" />
       <div className="cart">
-        <div className="cart__container">
+        <div className="cart__container container">
           {cartItems.length === 0 ? (
-            <h2 className="cart__header">Your cart is empty</h2>
+            <h2 className="cart__header header1">Your cart is empty</h2>
           ) : (
             <>
-              <h2 className="cart__header">
+              <h2 className="cart__header header1">
                 Your Cart: {cartItems.length}{" "}
                 {cartItems.length > 1 ? "items" : "item"}
               </h2>

@@ -15,8 +15,8 @@ const Profile = () => {
         <>
           <MetaData title="Your Profile" />
           <div className="profile">
-            <div className="profile__container">
-              <h2 className="profile__header">My Profile</h2>
+            <div className="profile__container container">
+              <h2 className="profile__header header1">My Profile</h2>
               <div className="profile__body">
                 <div className="profile__person">
                   <figure className="profile__avatar">

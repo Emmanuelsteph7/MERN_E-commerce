@@ -49,11 +49,11 @@ const UpdatePassword = ({ history }) => {
         <MetaData title="Update Password" />
         <div className="updatePassword">
           <form
-            className="updatePassword__form"
+            className="updatePassword__form form"
             onSubmit={(e) => handleSubmit(e)}
             noValidate
           >
-            <h2 className="updatePassword__header">Update Password</h2>
+            <h2 className="updatePassword__header header1">Update Password</h2>
             <div className="updatePassword__formGroup">
               <label className="updatePassword__formLabel">Old Password</label>
               <input
@@ -79,7 +79,7 @@ const UpdatePassword = ({ history }) => {
               <button
                 type="submit"
                 disabled={loading ? true : false}
-                className="updatePassword__submitBtn"
+                className="updatePassword__submitBtn btn"
               >
                 Update Password
               </button>

@@ -40,7 +40,6 @@ const Register = ({ history }) => {
     formData.set("password", password);
     formData.set("avatar", avatar);
 
-    console.log(formData);
     dispatch(register(formData));
   };
 
@@ -69,12 +68,12 @@ const Register = ({ history }) => {
         <MetaData title="Register" />
         <div className="register">
           <form
-            className="register__form"
+            className="register__form form"
             onSubmit={(e) => handleSubmit(e)}
             encType="multipart/form-data"
             noValidate
           >
-            <h2 className="register__header">Register</h2>
+            <h2 className="register__header header1">Register</h2>
             <div className="register__formGroup">
               <label className="register__formLabel">Name</label>
               <input
@@ -126,7 +125,7 @@ const Register = ({ history }) => {
               <button
                 type="submit"
                 disabled={loading ? true : false}
-                className="register__submitBtn"
+                className="register__submitBtn btn"
               >
                 Register
               </button>

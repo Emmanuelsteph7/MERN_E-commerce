@@ -75,11 +75,11 @@ const Home = ({ match }) => {
     <>
       <MetaData title="Buy Best Products Online" />
       <section className="home">
-        <div className="home__container">
-          <h1 className="home__header">Latest Products</h1>
+        <div className="home__container container">
+          <h1 className="home__header header1">Latest Products</h1>
           <div className="home__head">
             <div className="home__filter">
-              <h4 className="home__filterHeader">Filter by Price</h4>
+              <h4 className="home__filterHeader header3">Filter by Price</h4>
               <PriceSlider
                 maxValue={price[1]}
                 value={price[0]}
@@ -88,12 +88,14 @@ const Home = ({ match }) => {
               />
             </div>
             <div className="home__ratingsFilter">
-              <h4 className="home__ratingsFilterHeader">Filter by Ratings</h4>
+              <h4 className="home__ratingsFilterHeader header3">
+                Filter by Ratings
+              </h4>
               <RatingsFilter value={ratings} ratingsFunc={setRatings} />
             </div>
           </div>
           <div className="home__category">
-            <h4 className="home__categoryHeader">Categories</h4>
+            <h4 className="home__categoryHeader header3">Categories</h4>
             <div className="home__categoryItems">
               <span
                 className="home__categoryItem active"

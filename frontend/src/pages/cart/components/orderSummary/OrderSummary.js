@@ -95,13 +95,13 @@ const OrderSummary = ({ confirm }) => {
         <div className="orderSummary__submit">
           {confirm ? (
             <button
-              className="orderSummary__btn"
+              className="orderSummary__btn btn"
               onClick={handleProceedToPayment}
             >
               Proceed to Payment
             </button>
           ) : (
-            <button className="orderSummary__btn" onClick={handleCheckout}>
+            <button className="orderSummary__btn btn" onClick={handleCheckout}>
               Check out
             </button>
           )}

@@ -11,11 +11,11 @@ import AlertTemplate from "react-alert-template-basic";
 // optional configuration
 const options = {
   // you can also just use 'bottom center'
-  position: positions.TOP_RIGHT,
+  position: positions.BOTTOM_CENTER,
   timeout: 5000,
-  offset: "120px 0",
+  // offset: "70px 0",
   // you can also just use 'scale'
-  transition: transitions.FADE,
+  transition: transitions.SCALE,
 };
 
 ReactDOM.render(

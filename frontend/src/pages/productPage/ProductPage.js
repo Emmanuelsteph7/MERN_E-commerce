@@ -65,7 +65,7 @@ const ProductPage = ({ match }) => {
             <>
               <MetaData title={product.name} />
               <section className="productPage">
-                <div className="productPage__container">
+                <div className="productPage__container container">
                   <div className="productPage__imageDiv">
                     <img className="productPage__image" src={Card} alt="" />
                   </div>
@@ -92,7 +92,7 @@ const ProductPage = ({ match }) => {
                       </span>
                     </div>
                     <div className="productPage__price">
-                      <span className="productPage__priceAmount header4">
+                      <span className="productPage__priceAmount header5">
                         ${product.price}
                       </span>
                       <div className="productPage__priceCart">
@@ -119,7 +119,7 @@ const ProductPage = ({ match }) => {
                           decreaseFunc={decreaseStock}
                         />
                         <button
-                          className="productPage__priceCartBtn"
+                          className="productPage__priceCartBtn btn"
                           disabled={product.stock === 0}
                           onClick={addToCart}
                         >
@@ -138,7 +138,7 @@ const ProductPage = ({ match }) => {
                       </span>
                     </div>
                     <div className="productPage__description">
-                      <h4 className="productPage__descriptionHeader header5">
+                      <h4 className="productPage__descriptionHeader header3">
                         Description
                       </h4>
                       <div className="productPage__descriptionBody">
@@ -155,7 +155,7 @@ const ProductPage = ({ match }) => {
                         </span>
                       </div>
                       <div className="productPage__submitBtnDiv">
-                        <button className="productPage__submitBtn">
+                        <button className="productPage__submitBtn btn">
                           Submit Your Review
                         </button>
                       </div>

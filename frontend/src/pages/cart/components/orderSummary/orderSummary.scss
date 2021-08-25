@@ -1,4 +1,4 @@
-@use "../../../../styles" as *;
+@use "styles" as *;
 
 .orderSummary {
   width: 27%;
@@ -6,6 +6,14 @@
   border: 1px solid color(lightDark);
   transition: 0.3s ease-in-out;
   margin-bottom: 20px;
+
+  @include maxWidth(991px) {
+    width: 50%;
+  }
+
+  @include maxWidth(575px) {
+    width: 100%;
+  }
 
   &:hover {
     box-shadow: 2px 5px 10px lighten(color(dark), 10%);
@@ -34,8 +42,6 @@
   }
 
   .orderSummary__btn {
-    @extend .btn;
-
     width: 100%;
     padding: 0.7rem;
   }

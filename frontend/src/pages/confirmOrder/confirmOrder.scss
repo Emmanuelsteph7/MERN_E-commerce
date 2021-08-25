@@ -4,14 +4,21 @@
   margin-top: 50px;
 
   .confirmOrder__container {
-    @extend .container;
-
     display: flex;
     justify-content: space-between;
+
+    @include maxWidth(991px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .confirmOrder__body {
     width: 70%;
+
+    @include maxWidth(991px) {
+      width: 100%;
+    }
   }
 
   .confirmOrder__info {

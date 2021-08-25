@@ -1,10 +1,20 @@
 @use "styles" as *;
 
 .card {
-  max-width: 270px;
+  // max-width: 270px;
+  width: 23%;
   padding: 20px;
   border: 1px solid color(lightDark);
   transition: 0.3s ease-in-out;
+  margin: 22px 0;
+
+  @include maxWidth(991px) {
+    width: 45%;
+  }
+
+  @include maxWidth(575px) {
+    width: 100%;
+  }
 
   &:hover {
     box-shadow: 2px 5px 10px lighten(color(dark), 10%);
@@ -40,8 +50,6 @@
   }
 
   .card__btn {
-    @extend .btn;
-
     width: 100%;
     border-radius: 0;
     padding: 0.7rem;

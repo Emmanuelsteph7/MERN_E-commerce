@@ -43,11 +43,11 @@ const Shipping = ({ history }) => {
       <div className="shipping">
         <CheckoutSteps shipping />
         <form
-          className="shipping__form"
+          className="shipping__form form"
           onSubmit={(e) => handleSubmit(e)}
           noValidate
         >
-          <h2 className="shipping__header">Shipping Info</h2>
+          <h2 className="shipping__header header1">Shipping Info</h2>
           <div className="shipping__formGroup">
             <label className="shipping__formLabel">Address</label>
             <input
@@ -105,7 +105,7 @@ const Shipping = ({ history }) => {
             <button
               type="submit"
               //   disabled={loading ? true : false}
-              className="shipping__submitBtn"
+              className="shipping__submitBtn btn"
             >
               Continue
             </button>

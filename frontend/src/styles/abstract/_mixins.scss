@@ -1,0 +1,17 @@
+@mixin maxWidth($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+}
+
+@mixin minWidth($arg) {
+  @media screen and (min-width: $arg) {
+    @content;
+  }
+}
+
+@mixin maxHeight($arg) {
+  @media screen and (max-height: $arg) {
+    @content;
+  }
+}

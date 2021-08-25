@@ -3,8 +3,13 @@
 .searchForm {
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 40%;
   height: 38px;
+
+  @include maxWidth(767px) {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 
   .searchForm__formGroup {
     display: flex;
@@ -32,8 +37,6 @@
   }
 
   .searchForm__formSubmitBtn {
-    @extend .btn;
-
     display: flex;
     align-items: center;
     justify-content: center;

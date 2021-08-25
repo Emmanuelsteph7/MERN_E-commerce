@@ -29,11 +29,26 @@
   &.btn {
     margin-left: 15px;
 
+    @include maxWidth(767px) {
+      margin-left: 0;
+      width: 50%;
+    }
+
+    @include maxWidth(575px) {
+      width: 100%;
+    }
+
     .link__item {
-      @extend .btn;
+      // @extend .btn;
 
       display: inline-block;
       padding: 0.7rem 1rem;
+      text-align: center;
+
+      @include maxWidth(767px) {
+        width: 100%;
+      }
+
       &:before {
         content: none;
       }

@@ -29,7 +29,7 @@ const ConfirmOrder = () => {
       <MetaData title="Confirm Order" />
       <div className="confirmOrder">
         <CheckoutSteps shipping confirm />
-        <div className="confirmOrder__container">
+        <div className="confirmOrder__container container">
           <div className="confirmOrder__body">
             <div className="confirmOrder__info">
               <h3 className="confirmOrder__header">Shipping Info</h3>

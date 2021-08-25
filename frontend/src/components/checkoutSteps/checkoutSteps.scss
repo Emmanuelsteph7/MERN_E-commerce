@@ -5,6 +5,14 @@
   max-width: 400px;
   margin: 0 auto 20px;
 
+  @include maxWidth(767px) {
+    width: 70%;
+  }
+
+  @include maxWidth(575px) {
+    width: 90%;
+  }
+
   .checkoutSteps__container {
     display: flex;
     align-items: center;

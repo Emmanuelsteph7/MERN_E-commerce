@@ -46,8 +46,12 @@ const Payment = ({ history }) => {
       <MetaData title="Payment" />
       <div className="payment">
         <CheckoutSteps shipping confirm payment />
-        <form className="payment__form" onSubmit={handlePayment} noValidate>
-          <h2 className="payment__header">Card Info</h2>
+        <form
+          className="payment__form form"
+          onSubmit={handlePayment}
+          noValidate
+        >
+          <h2 className="payment__header header1">Card Info</h2>
           <div className="payment__formGroup">
             <label className="payment__formLabel">Card Number</label>
             <input
@@ -72,7 +76,7 @@ const Payment = ({ history }) => {
             <button
               type="submit"
               //   disabled={loading ? true : false}
-              className="payment__submitBtn"
+              className="payment__submitBtn btn"
             >
               Pay
             </button>

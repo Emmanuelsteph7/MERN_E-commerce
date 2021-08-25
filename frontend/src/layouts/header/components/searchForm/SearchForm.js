@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 import "./searchForm.scss";
 
-const SearchForm = ({ history }) => {
+const SearchForm = () => {
   const [keyword, setKeyword] = useState("");
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const SearchForm = ({ history }) => {
         />
       </div>
       <div className="searchForm__formSubmit">
-        <button className="searchForm__formSubmitBtn" type="submit">
+        <button className="searchForm__formSubmitBtn btn" type="submit">
           <FiSearch />
         </button>
       </div>

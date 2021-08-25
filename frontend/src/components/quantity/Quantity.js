@@ -19,14 +19,14 @@ const Quantity = ({
   return (
     <div className="quantity">
       <button
-        className="quantity__decrease"
+        className="quantity__decrease btn"
         onClick={cartItem ? handleDecrease : decreaseFunc}
       >
         -
       </button>
       <span className="quantity__number">{value}</span>
       <button
-        className="quantity__increase"
+        className="quantity__increase btn"
         onClick={cartItem ? handleIncrease : increaseFunc}
       >
         +

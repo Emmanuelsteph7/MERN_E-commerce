@@ -1,10 +1,6 @@
 @use "../../styles" as *;
 
 .cart {
-  .cart__container {
-    @extend .container;
-  }
-
   .cart__header {
     margin: 40px 0 20px;
   }
@@ -12,9 +8,18 @@
   .cart__body {
     display: flex;
     justify-content: space-between;
+
+    @include maxWidth(991px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .cart__content {
     width: 70%;
+
+    @include maxWidth(991px) {
+      width: 100%;
+    }
   }
 }

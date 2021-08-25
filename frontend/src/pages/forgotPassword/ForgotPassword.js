@@ -40,11 +40,11 @@ const ForgotPassword = () => {
         <MetaData title="Forgot Password" />
         <div className="forgotPassword">
           <form
-            className="forgotPassword__form"
+            className="forgotPassword__form form"
             onSubmit={(e) => handleSubmit(e)}
             noValidate
           >
-            <h2 className="forgotPassword__header">Forgot Password</h2>
+            <h2 className="forgotPassword__header header1">Forgot Password</h2>
             <div className="forgotPassword__formGroup">
               <label className="forgotPassword__formLabel">Email</label>
               <input
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
               <button
                 type="submit"
                 disabled={loading ? true : false}
-                className="forgotPassword__submitBtn"
+                className="forgotPassword__submitBtn btn"
               >
                 Send Email
               </button>

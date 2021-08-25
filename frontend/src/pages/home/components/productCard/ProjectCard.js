@@ -11,7 +11,7 @@ const ProjectCard = ({ product }) => {
           <img className="card__image" src={Card} alt="" />
         </div>
         <div className="card__body">
-          <h3 className="card__header">
+          <h3 className="card__header header5">
             <Link to={`/product/${product._id}`}>{product.name}</Link>
           </h3>
           <div className="card__ratingDiv">
@@ -29,7 +29,7 @@ const ProjectCard = ({ product }) => {
         </div>
         <div className="card__btnDiv">
           <Link to={`/product/${product._id}`}>
-            <button className="card__btn">View Details</button>
+            <button className="card__btn btn">View Details</button>
           </Link>
         </div>
       </div>

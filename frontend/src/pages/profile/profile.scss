@@ -2,7 +2,6 @@
 
 .profile {
   .profile__container {
-    @extend .container;
     margin-top: 50px;
   }
 
@@ -14,10 +13,25 @@
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
+
+    @include maxWidth(767px) {
+      flex-direction: column;
+      width: 70%;
+      margin: 50px auto 0;
+    }
+
+    @include maxWidth(575px) {
+      width: 100%;
+    }
   }
 
   .profile__person {
     width: 45%;
+
+    @include maxWidth(767px) {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 
   .profile__avatar {
@@ -38,6 +52,10 @@
       display: block;
       text-align: center;
       margin: 0;
+
+      @include maxWidth(767px) {
+        width: 100%;
+      }
     }
 
     .link__item {
@@ -47,6 +65,10 @@
 
   .profile__details {
     width: 50%;
+
+    @include maxWidth(767px) {
+      width: 100%;
+    }
   }
 
   .profile__detailsContainer {
