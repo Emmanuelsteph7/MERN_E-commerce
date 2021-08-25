@@ -1,5 +1,5 @@
 const express = require("express");
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorMiddleware = require("./middleware/errors");
 const cookieParser = require("cookie-parser");
@@ -10,9 +10,10 @@ const cors = require("cors");
 const path = require("path");
 
 // Setting up config file
-if (process.env.NODE_ENV !== "PRODUCTION") {
-  require("dotenv").dotenv.config({ path: "backend/config/config.env" });
-}
+// if (process.env.NODE_ENV !== "PRODUCTION") {
+dotenv.config({ path: "backend/config/config.env" });
+// require("dotenv").dotenv.config({ path: "backend/config/config.env" });
+// }
 
 // Connect to Mongo
 connectDB();
