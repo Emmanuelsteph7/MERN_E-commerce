@@ -9,6 +9,7 @@ import LinkItem from "components/link/Link";
 const Login = ({ history, location }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -28,6 +29,10 @@ const Login = ({ history, location }) => {
 
     if (isAuthenticated) {
       history.push(redirect);
+      // alert.success("Login Successful");
+    }
+
+    if (isAuthenticated && showAlert) {
       alert.success("Login Successful");
     }
   }, [dispatch, alert, error, isAuthenticated, redirect, history]);
@@ -36,6 +41,8 @@ const Login = ({ history, location }) => {
     e.preventDefault();
 
     dispatch(login(email, password));
+
+    setShowAlert(true);
   };
 
   return (

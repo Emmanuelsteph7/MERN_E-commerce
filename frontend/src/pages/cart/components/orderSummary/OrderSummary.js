@@ -4,6 +4,7 @@ import "./orderSummary.scss";
 
 const OrderSummary = ({ confirm }) => {
   const { cartItems } = useSelector((state) => state.cart);
+  const { isAuthenticated } = useSelector((state) => state.auth);
   const history = useHistory();
 
   let totalUnits = cartItems.reduce(
@@ -20,7 +21,11 @@ const OrderSummary = ({ confirm }) => {
     // if a user isn't logged in and has added things to the cart and wants to checkout,
     // it should take the user to the login page. After logging in, instead of taking the user to the home,
     // it should take the user to the shopping page
-    history.push("/login?redirect=shipping");
+    if (isAuthenticated) {
+      history.push("/shipping");
+    } else {
+      history.push("/login?redirect=shipping");
+    }
   };
 
   const itemsPrice = cartItems.reduce(
